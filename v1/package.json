@@ -1,0 +1,23 @@
+{
+  "name": "v1",
+  "version": "1.0.0",
+  "description": "MommaCafe v1",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alteredco/MommaCafe.git"
+  },
+  "author": "Wendy Kakuda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alteredco/MommaCafe/issues"
+  },
+  "homepage": "https://github.com/alteredco/MommaCafe#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4"
+  }
+}
