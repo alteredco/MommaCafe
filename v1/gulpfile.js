@@ -38,7 +38,7 @@ gulp.task(
   gulp.series("nodemon", () => {
     browserSync.init(null, {
       proxy: "http://localhost:3000",
-      files: ["./app/*.js"],
+      files: ["./app/app.js"],
 
       port: 5000
     });
@@ -49,7 +49,7 @@ gulp.task("serve", gulp.series("browser-sync", () => {}));
 
 // syncs reload of page with actions
 gulp.task("watch", () => {
-  watch("./app/*.js", () => {
+  watch("./app/app.js", () => {
     gulp.start("default")
   })
   watch("./app/assets/css/**/*.css", () =>{
