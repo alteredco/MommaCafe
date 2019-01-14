@@ -1,3 +1,5 @@
+<% include ./partials/header %>
+
 <h1>This is the cafes page</h1>
 
 <% cafes.forEach(function(cafe){ %>
@@ -6,3 +8,5 @@
     <img src="<%= cafe.image %>">
   </div>
 <% });%> 
+
+<% include ./partials/footer %>
