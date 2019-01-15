@@ -22,6 +22,10 @@ let cafes = [
   {
     name: "La Fabrique",
     image:"https://media-cdn.tripadvisor.com/media/photo-s/12/b4/48/b3/la-fabrique.jpg"
+  },
+  {
+    name: "Sky Cafe",
+    image:"http://i2.wp.com/www.belgiumwithkids.com/wp-content/uploads/sky-cafe.jpg"
   }
 ]
 
