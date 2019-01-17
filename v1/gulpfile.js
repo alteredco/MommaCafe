@@ -32,6 +32,13 @@ gulp.task("nodemon", cb => {
   });
 });
 
+//converts sass to css with gulp-sass
+gulp.task("sass", () => {
+  return gulp.src("./app/assets/scss/styles.scss")
+  .pipe(sass()) 
+  .pipe(gulp.dest("./app/assets/css"))
+});
+
 // syncs server with browser
 gulp.task(
   "browser-sync",
@@ -45,21 +52,7 @@ gulp.task(
   })
 );
 
-gulp.task("serve", gulp.series("browser-sync", () => {}));
-
-// syncs reload of page with actions
-gulp.task("watch", () => {
-  watch("./app/app.js", () => {
-    gulp.start("default")
-  })
-  watch("./app/assets/css/**/*.css", () =>{
-    gulp.start("styles")
-  })
-});
-
-//converts sass to css with gulp-sass
-gulp.task("sass", () => {
-  return gulp.src("./app/assets/scss/styles.scss")
-  .pipe(sass()) 
-  .pipe(gulp.dest("./app/assets/css"))
-});
+gulp.task("serve", gulp.series("browser-sync", "sass", () => {
+  gulp.watch("./app/assets/scss/**/*.scss", gulp.series("sass"));
+  gulp.watch("./app/app.js").on('change', browserSync.reload);
+}));
