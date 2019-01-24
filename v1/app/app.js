@@ -1,7 +1,9 @@
-const http = require("http"),
-express = require("express"),
-bodyParser = require("body-parser");
+const http      = require("http"),
+express         = require("express"),
+bodyParser  = require("body-parser"),
+mongoose     = require("mongoose");
 
+mongoose.connect("mongodb://localhost/momma_cafe");
 const port = 3000;
 const app = express();
 
@@ -10,31 +12,44 @@ app.use(bodyParser.urlencoded( {extended:true} ));
 app.set("views", "./app/views");
 app.set("view engine", "ejs")
 
-let cafes = [
-  {
-    name: "Lulu Cafe", 
-    image:"https://www.spottedbylocals.com/brussels/files/lulu-home-interior-brussels-by-sarah-filion.jpg"
-  },
-  {
-    name: "Garage-à-Manger",
-    image:"http://designseptember.be/commerce-design/img_look/projet/b71640a49fced6a5d0102d139aba0db5.jpg"
-  },
-  {
-    name: "La Fabrique",
-    image:"https://media-cdn.tripadvisor.com/media/photo-s/12/b4/48/b3/la-fabrique.jpg"
-  },
-  {
-    name: "Sky Cafe",
-    image:"http://i2.wp.com/www.belgiumwithkids.com/wp-content/uploads/sky-cafe.jpg"
-  }
-]
+// SCHEMA SETUP
+let cafeSchema = new mongoose.Schema({
+  name: String,
+  image: String,
+  city: String,
+  country: String
+});
+
+const Cafe = mongoose.model("Cafe", cafeSchema);
+
+// Cafe.create(
+//   {
+//     name: "Sky Cafe", 
+//     image:"http://i2.wp.com/www.belgiumwithkids.com/wp-content/uploads/sky-cafe.jpg",
+//     city: "Brussels",
+//     country: "Belgium"
+//   }, (err, cafe) =>{
+//     if(err) {
+//       console.log(err);
+//     } else {
+//       console.log("NEWLY CREATED CAFE:  ");
+//       console.log(cafe);
+//     }
+//   }
+// )
 
 app.get("/", function(req, res) { 
   res.render("landing");
 });
 
 app.get("/cafes", function(req, res) {
-  res.render("cafes", {cafes: cafes});
+  Cafe.find({}, (err, allCafes) => {
+    if(err) {
+      console.log(err);
+    } else {
+      res.render("cafes", {cafes: allCafes});
+    }
+  })
 });
 
 app.post("/cafes", function(req, res) {
