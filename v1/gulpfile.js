@@ -1,18 +1,16 @@
 const gulp = require("gulp"),
-sass = require("gulp-sass"),
-browserSync = require("browser-sync").create(),
+watch = require("gulp-watch"),
+postcss = require("gulp-postcss"),
+nested =  require("postcss-nested"),
+cssvars = require("postcss-simple-vars"),
 nodemon = require("gulp-nodemon"),
-watch = require("gulp-watch");
+autoprefixer = require("autoprefixer"),
+browserSync = require("browser-sync").create();
 
 
 gulp.task("default", () => {
   console.log("Hooray for gulp!! It's working!!");
 });
-
-gulp.task("styles", () => {
-  console.log("imagine SASS task happening here.");
-});
-
 
 // starts the gulp server
 gulp.task("nodemon", cb => {
@@ -32,6 +30,13 @@ gulp.task("nodemon", cb => {
   });
 });
 
+//converts sass to css with gulp-sass
+gulp.task("styles", () => {
+  return gulp.src("./app/assets/css/styles.css")
+    .pipe(postcss([cssvars, nested, autoprefixer]))
+    .pipe(gulp.dest("./app/temp/assets"))
+});
+
 // syncs server with browser
 gulp.task(
   "browser-sync",
@@ -39,27 +44,14 @@ gulp.task(
     browserSync.init(null, {
       proxy: "http://localhost:3000",
       files: ["./app/app.js"],
-
       port: 5000
     });
   })
 );
 
-gulp.task("serve", gulp.series("browser-sync", () => {}));
-
-// syncs reload of page with actions
-gulp.task("watch", () => {
-  watch("./app/app.js", () => {
-    gulp.start("default")
+gulp.task("serve", gulp.series("browser-sync", () => {
+  gulp.watch("./app/assets/css/styles.css", () => {
+    gulp.start("styles");
   })
-  watch("./app/assets/css/**/*.css", () =>{
-    gulp.start("styles")
-  })
-});
-
-//converts sass to css with gulp-sass
-gulp.task("sass", () => {
-  return gulp.src("./app/assets/scss/styles.scss")
-  .pipe(sass()) 
-  .pipe(gulp.dest("./app/assets/css"))
-});
+  gulp.watch("./app/app.js").on('change', browserSync.reload);
+}));
