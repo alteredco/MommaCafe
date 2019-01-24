@@ -1,16 +1,27 @@
 <% include ./partials/header %>
 
-<div class="">
-    <h1>Add a New Cafe</h1>
-    <div class="container">
-        <form class="form-inline" action= "/cafes" method = "POST">
-          <input class="form-control mr-sm-2" type= "text" name= "name" placeholder= "name">
-          <input class="form-control mr-sm-2" type= "text" name= "image" placeholder= "image">
-          <button class="btn btn-outline-primary btn-lg">Submit</button>
-        </form>
-    </div>
+<div class="container">
+        <h1 style="text-align: center">Add a New Cafe</h1>
+        <div style="width: 30%; margin: 25px auto">
+          <form class="form-inline" action= "/cafes" method = "POST">
+          <div class="form-row">
+            <div class="form-group">
+                <input class="form-control " type= "text" id="name" name= "name" placeholder= "name">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+                <input class="form-control " type= "text" id="image" name= "image" placeholder= "image">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+                <button class="btn btn-outline-primary btn-lg">Submit</button>
+            </div>
+          </div>
+          </form>
+          <a href="/cafes">Go Back</a>
+      </div>
 </div>
-
-  <a href="/cafes">Go Back</a>
   
 <% include ./partials/footer %>
