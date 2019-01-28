@@ -1,0 +1,9 @@
+<% include ./partials/header %>
+
+<h1><%= cafe.name %></h1>
+<img class="img-thumbnail" src="<%= cafe.image %>">
+<p><%= cafe.city %>, <%= cafe.country %></p>
+<p><%= cafe.description %></p>
+<a href="/cafes">Back to All Cafes</a>
+
+<% include ./partials/footer %>
