@@ -1,5 +1,5 @@
-# MommaCafe
-Repository for MommaCafe app
+# MamaCafe
+Repository for MamaCafe app
 
 ## Install latest version of node:
 `nvm install 10.11.0`
@@ -26,16 +26,28 @@ This may automatically install locally if you run npm install first, but you wil
 
   `gulp default`
 
-### Auto convert sass in styles.scss to css in styles.css:
-
-  `gulp sass`
-
 ## Version 1 tasks:
 
-  -[] * Add landing page
-  -[] * Add Cafe page that lists all cafes
+  -[x] * Add landing page
+  -[x] * Add Cafe page that lists all cafes
 
   Each cafe has:
 
-  -[] * Name
-  -[] * Image
+  -[x] * Name
+  -[x] * Image
+
+## Version 2 tasks:
+  
+  -[x]Style the cafes page
+    -[x] *Add a better header/title
+    -[x] *Make cafes display in a grid
+  
+  -[x]Style the Navbar and Add New Cafe Form
+    -[x] *Add a navbar to all templates
+    -[x] *Style the new campground form
+  
+  -[x] *Add Mongoose
+     -[x] Install and configure mongoose
+     -[x] Setup cafe model schema
+     -[] Use cafe model inside of our routes
+    
