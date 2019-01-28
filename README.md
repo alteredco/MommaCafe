@@ -1,5 +1,5 @@
-# MamaCafe
-Repository for MamaCafe app
+# MommaCafe
+Repository for MommaCafe app
 
 ## Install latest version of node:
 `nvm install 10.11.0`
