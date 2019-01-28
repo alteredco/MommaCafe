@@ -49,9 +49,9 @@ This may automatically install locally if you run npm install first, but you wil
   -[x] Add Mongoose
      -[x] *Install and configure mongoose
      -[x] *Setup cafe model schema
-     -[] *Use cafe model inside of our routes
+     -[x] *Use cafe model inside of our routes
  
-  -[] Show Page
-     -[] *Add description to our cafe model
-     -[] *Add a show route/template
+  -[x] Show Page
+     -[x] *Add description to our cafe model
+     -[x] *Add a show route/template
     
