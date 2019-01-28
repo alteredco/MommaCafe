@@ -1,0 +1,35 @@
+<% include ./partials/header %>
+
+<div class ="container">
+  <header class="jumbotron text-center">
+    <h1>Welcome to MommaCafe</h1>
+    <p>View the best cafes for parents and babes from around the world!</p>
+    <p>
+        <a class="btn btn-outline-info btn-lg" href= "/cafes/new">Add New Cafe</a>
+    </p>
+  </header>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <h3>Our most popular cafes in Europe!</h3>
+    </div>
+  </div>
+  <div class="row " style="display: flex; flex-wrap: wrap;">
+    <% cafes.forEach(function(cafe){ %>
+      <div class="col-md-3 col-sm-6">
+        <div class="card">
+            <img class="card-img-top" src="<%= cafe.image %>">
+            <div class="card-body">
+              <div class="card-title">
+                  <h4><%= cafe.name %></h4>
+              </div>
+              <p>
+                <a href="/cafes/<%= cafe._id %>" class="btn btn-info">More Info</a>
+              </p>
+            </div>
+        </div>
+      </div>
+    <% });%> 
+  </div>
+</div>
+<% include ./partials/footer %>
