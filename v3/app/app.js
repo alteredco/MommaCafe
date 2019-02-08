@@ -1,20 +1,22 @@
 const http      = require("http"),
 express         = require("express"),
+app = express(),
 bodyParser  = require("body-parser"),
 mongoose     = require("mongoose"),
 methodOverride = require("method-override");
+// Cafe= require("./models/mommaCafe");
+
 
 mongoose.connect("mongodb://localhost:27017/momma_cafe", {useNewUrlParser: true});
 const port = 3000;
-const app = express();
 
 app.use(bodyParser.urlencoded( {extended:true} ));
+app.set("view engine", "ejs");
 app.use(methodOverride("_method"));
 
 app.set("views", "./app/views");
-app.set("view engine", "ejs")
 
-// SCHEMA SETUP
+
 let cafeSchema = new mongoose.Schema({
   name: String,
   image: String,
@@ -23,7 +25,7 @@ let cafeSchema = new mongoose.Schema({
   description: String
 });
 
-const Cafe = mongoose.model("Cafe", cafeSchema);
+const Cafe  = mongoose.model("Cafe", cafeSchema);
 
 app.get("/", function(req, res) { 
   res.render("landing");
