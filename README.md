@@ -9,8 +9,8 @@ Repository for MommaCafe app
 should return: V10.11.0
 
 ## Clone the Repo to start:
-###* Git clone https://github.com/alteredco/MommaCafe.git
-###* Install the dependencies and Start the App!
+### Git clone https://github.com/alteredco/MommaCafe.git
+### Install the dependencies and Start the App!
 `npm install`
 `npm i --global mongodb-download`
 `mongod` : Run in background shell
