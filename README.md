@@ -12,6 +12,9 @@ should return: V10.11.0
 ###* Git clone https://github.com/alteredco/MommaCafe.git
 ###* Install the dependencies and Start the App!
 `npm install`
+`npm i --global mongodb-download`
+`mongod` : Run in background shell
+`mongo` : Run in background shell (NOTE: You may need to run `sudo mongo`)
 `npm start`
 
 
@@ -22,7 +25,7 @@ This may automatically install locally if you run npm install first, but you wil
   `npm install gulp-cli --global`
   `npm install gulp --save-dev`
 
-### Test is gulp is working by navigating to your root file and running this command in the terminal:
+### Test if gulp is working by navigating to your root file and running this command in the terminal:
 
   `gulp default`
 
@@ -54,4 +57,14 @@ This may automatically install locally if you run npm install first, but you wil
   -[x] Show Page
      -[x] *Add description to our cafe model
      -[x] *Add a show route/template
-    
+
+## Version 3 tasks:
+  
+  -[x]Refactor Mongoose
+    -[x] *Create models dir
+    -[x] *Use module.exports
+    -[x] *Require exports
+  
+  -[x] Add Seeds File
+    -[x] *Run seeds file every time the server starts
+
