@@ -1,7 +1,6 @@
 const mongoose    = require("mongoose");
 
 // SCHEMA SETUP
-
 let cafeSchema = new mongoose.Schema({
   name: String,
   image: String,

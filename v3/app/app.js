@@ -4,7 +4,10 @@ app = express(),
 bodyParser  = require("body-parser"),
 mongoose     = require("mongoose"),
 methodOverride = require("method-override"),
-Cafe= require("../models/cafe");
+Cafe= require("../models/cafe"),
+seedDB = require("./seeds");
+
+seedDB();
 
 mongoose.connect("mongodb://localhost:27017/momma_cafe", {useNewUrlParser: true});
 const port = 3000;
