@@ -6,7 +6,13 @@ let cafeSchema = new mongoose.Schema({
   image: String,
   city: String,
   country: String,
-  description: String
+  description: String,
+  comments: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Comment"
+    }
+  ]
 });
 
 module.exports = mongoose.model("Cafe", cafeSchema);

@@ -57,10 +57,11 @@ app.get("/cafes/new", function(req, res) {
 
 //SHOW ROUTE
 app.get("/cafes/:id", function(req, res) {
-  Cafe.findById(req.params.id, function(err, foundCafe) {
+  Cafe.findById(req.params.id).populate("comments").exec(function(err, foundCafe) {
     if(err) {
       console.log(err);
     } else {
+      console.log(foundCafe);
       res.render("show", {cafe: foundCafe});
     }
   })
