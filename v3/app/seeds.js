@@ -1,5 +1,6 @@
 const mongoose = require("mongoose"),
 Cafe =  require("../models/cafe");
+Comment = require("../models/comment");
 
 let data = [
   {
@@ -46,19 +47,19 @@ function seedDB() {
         console.log(err);
       } else {
         console.log("Added Cafe!");
-        // Comment.create(
-        //   {
-        //     text: "I love this place!",
-        //     author: "MommaBird"
-        //   }, function(err, comment){
-        //     if(err) {
-        //       console.log(err);
-        //     }else {
-        //       cafe.comments.push(comment);
-        //       cafe.save();
-        //       console.log("Created new comment!");
-        //     }
-        //   });
+        Comment.create(
+          {
+            text: "I love this place!",
+            author: "MommaBird"
+          }, function(err, comment){
+            if(err) {
+              console.log(err);
+            }else {
+              cafe.comments.push(comment);
+              cafe.save();
+              console.log("Created new comment!");
+            }
+          });
       }
     });
   });

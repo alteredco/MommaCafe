@@ -34,7 +34,7 @@ gulp.task("nodemon", cb => {
 gulp.task("styles", () => {
   return gulp.src("./app/assets/css/styles.css")
     .pipe(postcss([cssvars, nested, autoprefixer]))
-    .pipe(gulp.dest("./app/temp/assets"))
+    .pipe(gulp.dest("./app/temp/assets/css/styles.css"))
 });
 
 // syncs server with browser
@@ -50,7 +50,7 @@ gulp.task(
 );
 
 gulp.task("serve", gulp.series("browser-sync", () => {
-  gulp.watch("./app/assets/css/styles.css", () => {
+  gulp.watch("./app/assets/..", () => {
     gulp.start("styles");
   })
   gulp.watch("./app/app.js").on('change', browserSync.reload);
