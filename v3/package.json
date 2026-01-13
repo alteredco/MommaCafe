@@ -28,7 +28,7 @@
     "browser-sync": "^3.0.2",
     "gulp": "^4.0.0",
     "gulp-nodemon": "^2.4.2",
-    "gulp-postcss": "^8.0.0",
+    "gulp-postcss": "^10.0.0",
     "gulp-sass": "^4.0.2",
     "gulp-watch": "^5.0.1",
     "method-override": "^3.0.0",
