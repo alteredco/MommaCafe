@@ -18,10 +18,10 @@
   },
   "homepage": "https://github.com/alteredco/MommaCafe#readme",
   "dependencies": {
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.20.4",
     "ejs": "^3.1.10",
-    "express": "^4.17.3",
-    "http-server": "^0.11.1"
+    "express": "^4.22.1",
+    "http-server": "^0.11.2"
   },
   "devDependencies": {
     "autoprefixer": "^9.4.6",
@@ -29,7 +29,7 @@
     "gulp": "^4.0.0",
     "gulp-nodemon": "^2.4.2",
     "gulp-postcss": "^8.0.0",
-    "gulp-sass": "^4.0.2",
+    "gulp-sass": "^6.0.1",
     "gulp-watch": "^5.0.1",
     "method-override": "^3.0.0",
     "mongoose": "^5.7.5",
